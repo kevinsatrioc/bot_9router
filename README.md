@@ -30,7 +30,7 @@ Install Hermes Agent mengikuti dokumentasi resmi: https://hermes-agent.nousresea
 hermes --help
 ```
 
-Buat API key di https://openrouter.ai/keys, lalu set environment variable.
+Siapkan API key atau token pada instance 9Router lokal, lalu set environment variable.
 
 PowerShell:
 

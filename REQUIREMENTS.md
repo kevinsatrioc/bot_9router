@@ -37,9 +37,7 @@ https://hermes-agent.nousresearch.com/docs
 - API key 9Router
 - Model 9Router yang tersedia untuk akun tersebut
 
-Buat API key di:
-
-https://openrouter.ai/keys
+Siapkan API key atau token pada instance 9Router lokal melalui dashboard 9Router.
 
 Jangan masukkan API key ke source code, commit, issue, atau chat publik.
 
@@ -75,18 +73,18 @@ Setelah Hermes terpasang, konfigurasi environment.
 PowerShell:
 
 ```powershell
-$env:OPENROUTER_API_KEY="isi_api_key"
-$env:OPENROUTER_BASE_URL="https://openrouter.ai/api/v1"
-$env:OPENROUTER_MODEL="openai/gpt-4o-mini"
+$env:NINEROUTER_API_KEY="isi_api_key_atau_token"
+$env:NINEROUTER_BASE_URL="http://localhost:20128/v1"
+$env:NINEROUTER_MODEL="default"
 python hermes_runner.py
 ```
 
 Linux/macOS:
 
 ```bash
-export OPENROUTER_API_KEY="isi_api_key"
-export OPENROUTER_BASE_URL="https://openrouter.ai/api/v1"
-export OPENROUTER_MODEL="openai/gpt-4o-mini"
+export NINEROUTER_API_KEY="isi_api_key_atau_token"
+export NINEROUTER_BASE_URL="http://localhost:20128/v1"
+export NINEROUTER_MODEL="default"
 python hermes_runner.py
 ```
 
