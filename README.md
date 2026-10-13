@@ -1,20 +1,20 @@
 # Bot 9Router + Hermes Agent
 
-Project ini menggunakan **OpenRouter sebagai backend/model gateway** dan **Hermes Agent sebagai runtime AI agent**. Repository ini tidak menyalin source code Hermes; launcher memanggil instalasi Hermes resmi di komputer pengguna.
+Project ini menggunakan **9Router sebagai backend/model gateway** dan **Hermes Agent sebagai runtime AI agent**. Repository ini tidak menyalin source code Hermes; launcher memanggil instalasi Hermes resmi di komputer pengguna.
 
 Arsitektur:
 
 ```text
-Pengguna → Hermes Agent → OpenRouter API → Model AI
+Pengguna → Hermes Agent → 9Router API → Model AI
 ```
 
-Hermes menyediakan agent loop, tools, memory, skills, dan interface. OpenRouter menyediakan akses ke model AI.
+Hermes menyediakan agent loop, tools, memory, skills, dan interface. 9Router menyediakan akses ke model AI.
 
 ## Persyaratan
 
 - Python 3.10 atau lebih baru
 - Hermes Agent terpasang dan perintah `hermes` tersedia di PATH
-- API key OpenRouter
+- API key 9Router
 - Koneksi internet
 
 ## Instalasi dan konfigurasi
@@ -35,17 +35,17 @@ Buat API key di https://openrouter.ai/keys, lalu set environment variable.
 PowerShell:
 
 ```powershell
-$env:OPENROUTER_API_KEY="isi_api_key"
-$env:OPENROUTER_BASE_URL="https://openrouter.ai/api/v1"
-$env:OPENROUTER_MODEL="openai/gpt-4o-mini"
+$env:NINEROUTER_API_KEY="isi_api_key_atau_token"
+$env:NINEROUTER_BASE_URL="http://localhost:20128/v1"
+$env:NINEROUTER_MODEL="default"
 ```
 
 Linux/macOS:
 
 ```bash
-export OPENROUTER_API_KEY="isi_api_key"
-export OPENROUTER_BASE_URL="https://openrouter.ai/api/v1"
-export OPENROUTER_MODEL="openai/gpt-4o-mini"
+export NINEROUTER_API_KEY="isi_api_key_atau_token"
+export NINEROUTER_BASE_URL="http://localhost:20128/v1"
+export NINEROUTER_MODEL="default"
 ```
 
 ## Menjalankan agent
@@ -60,7 +60,7 @@ Semua argumen wrapper diteruskan ke Hermes. Jangan pernah commit API key; `.env`
 ## Struktur project
 
 ```text
-hermes_runner.py   # launcher Hermes dengan backend OpenRouter
+hermes_runner.py   # launcher Hermes dengan backend 9Router
 .env.example       # contoh konfigurasi tanpa secret
 .gitignore         # mencegah secret ter-push
 README.md          # panduan instalasi dan penggunaan
@@ -69,7 +69,7 @@ REQUIREMENTS.md    # kebutuhan hardware, software, akun, dan deployment
 
 ## Cara kerja
 
-Pengguna mengirim pertanyaan ke Hermes Agent, Hermes menjalankan agent loop/tools, permintaan model dikirim ke OpenRouter, lalu respons diproses dan ditampilkan Hermes.
+Pengguna mengirim pertanyaan ke Hermes Agent, Hermes menjalankan agent loop/tools, permintaan model dikirim ke 9Router, lalu respons diproses dan ditampilkan Hermes.
 
 ## Alur kontribusi grup
 
@@ -82,5 +82,5 @@ Pengguna mengirim pertanyaan ke Hermes Agent, Hermes menjalankan agent loop/tool
 
 - Jangan mengunggah API key atau token.
 - Jika key terlanjur terunggah, segera revoke dan buat key baru.
-- Gunakan limit penggunaan OpenRouter.
+- Gunakan limit penggunaan 9Router.
 - Jangan menjalankan tools Hermes dengan izin berlebihan di mesin produksi.

@@ -9,7 +9,7 @@ Dokumen ini menjelaskan kebutuhan untuk menjalankan chatbot AI pada project ini.
 - Koneksi internet stabil
 - Ruang penyimpanan minimal 1 GB untuk runtime dan dependency
 
-> Model AI berjalan melalui OpenRouter, sehingga model tidak perlu diunduh ke komputer.
+> Model AI berjalan melalui 9Router, sehingga model tidak perlu diunduh ke komputer.
 
 ## 2. Software
 
@@ -33,9 +33,9 @@ https://hermes-agent.nousresearch.com/docs
 ## 3. Akun dan kredensial
 
 - Akun GitHub untuk mengambil source code
-- Akun OpenRouter
-- API key OpenRouter
-- Model OpenRouter yang tersedia untuk akun tersebut
+- Akun 9Router
+- API key 9Router
+- Model 9Router yang tersedia untuk akun tersebut
 
 Buat API key di:
 
@@ -46,12 +46,14 @@ Jangan masukkan API key ke source code, commit, issue, atau chat publik.
 ## 4. Environment variable wajib
 
 ```text
-OPENROUTER_API_KEY=API key OpenRouter
-OPENROUTER_BASE_URL=https://openrouter.ai/api/v1
-OPENROUTER_MODEL=openai/gpt-4o-mini
+NINEROUTER_API_KEY=API key atau token 9Router
+NINEROUTER_BASE_URL=http://localhost:20128/v1
+NINEROUTER_MODEL=default
 ```
 
-`OPENROUTER_BASE_URL` dan `OPENROUTER_MODEL` dapat diganti sesuai model yang dipilih. `OPENROUTER_API_KEY` wajib diisi.
+`NINEROUTER_BASE_URL` adalah endpoint lokal 9Router yang digunakan project. `NINEROUTER_MODEL` dapat diganti sesuai model yang tersedia. `NINEROUTER_API_KEY` wajib diisi jika instance 9Router memerlukan autentikasi.
+
+Launcher juga mengisi alias `OPENAI_API_KEY`, `OPENAI_BASE_URL`, dan `OPENAI_MODEL` untuk adapter yang memakai format OpenAI-compatible.
 
 ## 5. File project
 
@@ -101,7 +103,7 @@ python hermes_runner.py
 Sebelum deployment, siapkan:
 
 - Secret manager atau environment variable yang aman
-- Pembatasan biaya dan rate limit OpenRouter
+- Pembatasan biaya dan rate limit 9Router
 - Logging tanpa membocorkan API key atau data sensitif
 - Monitoring error dan penggunaan token
 - Aturan akses tools Hermes yang paling terbatas
@@ -109,7 +111,7 @@ Sebelum deployment, siapkan:
 
 ## 9. Batasan
 
-- Tanpa API key, chatbot tidak dapat meminta jawaban model melalui OpenRouter.
-- Ketersediaan dan biaya model mengikuti OpenRouter.
+- Tanpa API key, chatbot tidak dapat meminta jawaban model melalui 9Router.
+- Ketersediaan dan biaya model mengikuti 9Router.
 - Hermes Agent harus sudah terpasang di setiap komputer anggota yang ingin menjalankan agent.
 - Repository ini adalah konfigurasi dan launcher project, bukan salinan source code Hermes Agent.
