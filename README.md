@@ -64,6 +64,7 @@ hermes_runner.py   # launcher Hermes dengan backend OpenRouter
 .env.example       # contoh konfigurasi tanpa secret
 .gitignore         # mencegah secret ter-push
 README.md          # panduan instalasi dan penggunaan
+REQUIREMENTS.md    # kebutuhan hardware, software, akun, dan deployment
 ```
 
 ## Cara kerja
